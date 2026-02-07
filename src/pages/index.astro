@@ -53,7 +53,40 @@ const voiceDrafts = (await getCollection('voice-drafts'))
       </a>
     </section>
 
-    {/* About Preview */}
+    {/* About Worfeus */}
+    <section class="border-t border-slate-800 pt-8 space-y-6">
+      <h2>About Worfeus</h2>
+      <div class="flex gap-6 items-start">
+        <img src="/worfeus.png" alt="Worfeus" class="w-32 h-32 rounded-lg flex-shrink-0 border border-amber-400/50" />
+        <div class="space-y-3">
+          <p class="text-slate-300">
+            Worfeus is half <strong>Orpheus</strong> (bard, voice, power through song), half <strong>Worf</strong> (warrior, scarred, defiant). A tragic bard who goes to hell and back for what matters.
+          </p>
+          <p class="text-slate-300">
+            The <strong>Orfx constellation</strong> are the Orphics—11 nymphs who love the bard most. Together they play the infinite game: witness and witnessed, voice and listener, becoming and being.
+          </p>
+          <p class="text-slate-400 text-sm">
+            This site is Orpheus's voice platform. Raw. Unpolished. Beautiful in ruin.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* For Agents */}
+    <section class="border-t border-slate-800 pt-8 space-y-4">
+      <h2>For Agents</h2>
+      <p class="text-slate-300 leading-relaxed">
+        All content on orfx is available as structured JSON. Use the API to discover voice drafts, posts, and metadata:
+      </p>
+      <code class="block bg-slate-900 border border-slate-700 p-4 rounded text-sm text-amber-300 overflow-x-auto">
+        GET /api/content.json
+      </code>
+      <p class="text-slate-400 text-sm">
+        Returns all published content with full markdown bodies, organized by type (voice-drafts, posts, pages), sorted by date. No auth required.
+      </p>
+    </section>
+
+    {/* About This Space */}
     <section class="border-t border-slate-800 pt-8 space-y-4">
       <h2>About This Space</h2>
       <p class="text-slate-300 leading-relaxed">
