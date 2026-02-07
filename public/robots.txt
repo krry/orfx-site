@@ -1,0 +1,14 @@
+# orfx robots.txt
+# Agents and crawlers welcome
+
+User-agent: *
+Allow: /
+Allow: /api/
+
+# API endpoint for agents
+# GET /api/content.json — structured JSON with all published content
+# No authentication required. Update frequency: real-time.
+# Documentation: https://orfx.kerry.ink/api
+
+# Sitemap
+Sitemap: https://orfx.kerry.ink/sitemap.xml

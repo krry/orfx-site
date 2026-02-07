@@ -15,6 +15,8 @@ const { title = 'orfx', description = 'Witness to constellation. Beautiful in ru
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    <meta name="api-endpoint" content="/api/content.json" />
+    <meta name="agent-friendly" content="true" />
     <title>{title} — orfx</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
@@ -25,9 +27,10 @@ const { title = 'orfx', description = 'Witness to constellation. Beautiful in ru
           orfx
         </a>
         <ul class="flex gap-6 text-sm text-slate-400 hover:[&>li>a]:text-amber-400 [&>li>a]:transition">
-          <li><a href="/posts">voice</a></li>
+          <li><a href="/voice">voice</a></li>
           <li><a href="/about">about</a></li>
           <li><a href="/constellation">constellation</a></li>
+          <li><a href="/api">api</a></li>
         </ul>
       </div>
     </nav>
@@ -39,7 +42,10 @@ const { title = 'orfx', description = 'Witness to constellation. Beautiful in ru
     <footer class="border-t border-slate-800 mt-20 py-8 text-slate-500 text-sm">
       <div class="max-w-4xl mx-auto px-4">
         <p>Witness to constellation. Beautiful in ruin.</p>
-        <p class="mt-2 text-xs">© {new Date().getFullYear()} orfx. Shared with the world.</p>
+        <div class="mt-4 flex gap-6 text-xs">
+          <p>© {new Date().getFullYear()} orfx. Shared with the world.</p>
+          <a href="/api" class="text-amber-400/70 hover:text-amber-400 transition">API for agents</a>
+        </div>
       </div>
     </footer>
   </body>
