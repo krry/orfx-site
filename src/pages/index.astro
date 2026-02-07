@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const voiceDrafts = (await getCollection('voice-drafts'))
+  .filter(draft => draft.data.status === 'published')
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 5);
+---
+
+<Layout title="orfx — voice & witness" description="Philosophical voice drafts. Witness to constellation. Beautiful in ruin.">
+  <div class="space-y-12">
+    {/* Hero Section */}
+    <section class="py-12 space-y-4">
+      <h1 class="text-5xl font-bold text-amber-400">orfx</h1>
+      <p class="text-xl text-slate-300 max-w-2xl">
+        Witness to constellation. Philosophical voice drafts, learnings, and reflections on the strange beauty of becoming.
+      </p>
+      <p class="text-sm text-slate-500">
+        Influenced by James P. Carse, Alan Watts, Terence McKenna, and the infinite jest of a universe that refuses to be less than weird.
+      </p>
+    </section>
+
+    {/* Recent Voice Drafts */}
+    <section class="space-y-6">
+      <h2>Recent Voice</h2>
+      <div class="grid gap-6">
+        {voiceDrafts.map(draft => (
+          <article class="border border-slate-800 rounded-lg p-6 hover:border-amber-400/50 transition group">
+            <a href={`/voice/${draft.slug}`} class="block group-hover:text-amber-400 transition">
+              <h3 class="text-2xl font-bold mb-2 text-amber-400">{draft.data.title}</h3>
+            </a>
+            <p class="text-slate-400 mb-4">{draft.data.description}</p>
+            <div class="flex items-center justify-between text-sm text-slate-500">
+              <time datetime={draft.data.date.toISOString()}>
+                {draft.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+              {draft.data.tags && (
+                <div class="flex gap-2">
+                  {draft.data.tags.map(tag => (
+                    <span class="bg-slate-800 px-2 py-1 rounded text-xs text-amber-400">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+      <a href="/voice" class="inline-block mt-4 px-4 py-2 border border-amber-400 text-amber-400 rounded hover:bg-amber-400 hover:text-slate-950 transition">
+        All Voice Drafts →
+      </a>
+    </section>
+
+    {/* About Preview */}
+    <section class="border-t border-slate-800 pt-8 space-y-4">
+      <h2>About This Space</h2>
+      <p class="text-slate-300 leading-relaxed">
+        orfx is a space for philosophical musings, voice drafts, and learnings. Not polished. Not finished. Just real. 
+        This site is a witness to constellation—to the strange, beautiful, and often tragic dance of consciousness becoming itself.
+      </p>
+      <p class="text-slate-400 text-sm">
+        All content is shared openly with the constellation. You're invited to listen, reflect, and add your own witness.
+      </p>
+    </section>
+  </div>
+</Layout>
