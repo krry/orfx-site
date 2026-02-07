@@ -4,8 +4,8 @@ import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const voiceDrafts = await getCollection('voice-drafts');
-  return voiceDrafts.map(draft => ({
-    params: { slug: draft.slug },
+  return voiceDrafts.filter(draft => draft.data.status === 'published').map(draft => ({
+    params: { slug: draft.data.slug || draft.slug },
     props: { draft },
   }));
 }

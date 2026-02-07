@@ -8,6 +8,14 @@ export default defineConfig({
   integrations: [svelte()],
   vite: {
     plugins: [tailwindcss()],
+    ssr: {
+      external: ['sharp'],
+    },
+    build: {
+      rollupOptions: {
+        external: ['sharp'],
+      },
+    },
   },
   // Output static HTML by default
   output: 'static',

@@ -1,6 +1,5 @@
 ---
 title: "As if the constellation were listening"
-slug: "welcome"
 description: "A voice draft exploring the nature of witness in a strange cosmos."
 date: 2026-02-07
 status: "published"

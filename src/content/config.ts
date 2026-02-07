@@ -4,7 +4,7 @@ const postsCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    slug: z.string(),
+    slug: z.string().optional(), // Auto-generated from filename if not provided
     description: z.string().optional(),
     author: z.string().default('orfx'),
     date: z.date(),
@@ -21,7 +21,7 @@ const pagesCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    slug: z.string(),
+    slug: z.string().optional(), // Auto-generated from filename if not provided
     description: z.string().optional(),
     image: z.string().optional(),
   }),
@@ -31,7 +31,7 @@ const voiceDraftsCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    slug: z.string(),
+    slug: z.string().optional(), // Auto-generated from filename if not provided
     description: z.string(),
     date: z.date(),
     updated: z.date().optional(),
