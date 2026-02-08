@@ -1,13 +1,21 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import svelte from '@astrojs/svelte';
-import tailwindcss from '@tailwindcss/vite';
+import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [svelte()],
+  integrations: [svelte(), tailwind()],
+  output: 'static',
+  
+  markdown: {
+    shikiConfig: {
+      theme: 'github-dark',
+      wrap: true,
+    },
+  },
+  
   vite: {
-    plugins: [tailwindcss()],
     ssr: {
       external: ['sharp'],
     },
@@ -15,16 +23,6 @@ export default defineConfig({
       rollupOptions: {
         external: ['sharp'],
       },
-    },
-  },
-  // Output static HTML by default
-  output: 'static',
-  
-  // Configure markdown
-  markdown: {
-    shikiConfig: {
-      theme: 'github-dark',
-      wrap: true,
     },
   },
 });
