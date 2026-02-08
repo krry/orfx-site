@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/voice",
+      "destination": "/verse",
+      "permanent": true
+    },
+    {
+      "source": "/voice/:slug",
+      "destination": "/verse/:slug",
+      "permanent": true
+    }
+  ]
+}

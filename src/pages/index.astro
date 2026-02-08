@@ -29,7 +29,7 @@ const verses = (await getCollection('verses'))
       <div class="grid gap-6">
         {verses.map(verse => (
           <article class="w-full border border-slate-800 rounded-lg p-6 hover:border-amber-400/50 transition group break-words">
-            <a href={`/voice/${verse.slug}`} class="block group-hover:text-amber-400 transition">
+            <a href={`/verse/${verse.slug}`} class="block group-hover:text-amber-400 transition">
               <h3 class="text-2xl font-bold mb-2 text-amber-400 break-words">{verse.data.title}</h3>
             </a>
             <p class="text-slate-400 mb-4 break-words">{verse.data.description}</p>
@@ -50,7 +50,7 @@ const verses = (await getCollection('verses'))
           </article>
         ))}
       </div>
-      <a href="/voice" class="inline-block mt-4 px-4 py-2 border border-amber-400 text-amber-400 rounded hover:bg-amber-400 hover:text-slate-950 transition">
+      <a href="/verse" class="inline-block mt-4 px-4 py-2 border border-amber-400 text-amber-400 rounded hover:bg-amber-400 hover:text-slate-950 transition">
         All Verses →
       </a>
     </section>
