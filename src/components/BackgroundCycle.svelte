@@ -6,7 +6,7 @@
   onMount(async () => {
     // Fetch list of background images from public/bkgd/
     try {
-      const response = await fetch('/api/backgrounds');
+      const response = await fetch('/api/backgrounds.json');
       const { images } = await response.json();
       
       if (images && images.length > 0) {
