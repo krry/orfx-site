@@ -36,34 +36,3 @@ footer {
   position: relative;
   z-index: 10;
 }
-
-/* Color scheme support */
-@media (prefers-color-scheme: light) {
-  :root {
-    color-scheme: light;
-  }
-  
-  html {
-    background-color: rgb(248, 250, 252);
-  }
-  
-  body {
-    background-color: rgb(248, 250, 252);
-    color: rgb(15, 23, 42);
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-  }
-  
-  html {
-    background-color: rgb(3, 7, 18);
-  }
-  
-  body {
-    background-color: rgb(3, 7, 18);
-    color: rgb(241, 245, 249);
-  }
-}
