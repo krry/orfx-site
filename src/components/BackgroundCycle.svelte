@@ -22,7 +22,7 @@
 </script>
 
 {#if backgroundUrl}
-  <div class="background-container">
+  <div class="background-container bg-slate-100 dark:bg-slate-900">
     <img 
       src={backgroundUrl} 
       alt="Background" 

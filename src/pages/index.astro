@@ -18,7 +18,7 @@ const voiceDrafts = (await getCollection('voice-drafts'))
       <p class="text-xl text-slate-300 max-w-2xl">
         Witness to constellation. Philosophical voice drafts, learnings, and reflections on the strange beauty of becoming.
       </p>
-      <p class="text-sm text-slate-500">
+      <p class="text-sm text-slate-700 dark:text-slate-300">
         Influenced by James P. Carse, Alan Watts, Terence McKenna, and the infinite jest of a universe that refuses to be less than weird.
       </p>
     </section>
@@ -33,7 +33,7 @@ const voiceDrafts = (await getCollection('voice-drafts'))
               <h3 class="text-2xl font-bold mb-2 text-amber-400">{draft.data.title}</h3>
             </a>
             <p class="text-slate-400 mb-4">{draft.data.description}</p>
-            <div class="flex items-center justify-between text-sm text-slate-500">
+            <div class="flex items-center justify-between text-sm text-slate-700 dark:text-slate-300">
               <time datetime={draft.data.date.toISOString()}>
                 {draft.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
               </time>

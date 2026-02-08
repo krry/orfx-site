@@ -30,7 +30,7 @@ const voiceDrafts: VoiceDraft[] = [];
         <p class="text-lg text-slate-400">{draft.data.description}</p>
       </div>
       
-      <div class="flex flex-col gap-4 text-sm text-slate-500">
+      <div class="flex flex-col gap-4 text-sm text-slate-700 dark:text-slate-300">
         <div class="flex items-center justify-between">
           <time datetime={draft.data.date.toISOString()}>
             {draft.data.date.toLocaleDateString('en-US', { 

@@ -31,7 +31,7 @@ const grouped = voiceDrafts.reduce((acc, draft) => {
           {drafts.map(draft => (
             <li key={draft.slug} class="border-l-2 border-slate-800 hover:border-amber-400 pl-4 transition">
               <a href={`/voice/${draft.slug}`} class="group block">
-                <span class="text-sm text-slate-500 group-hover:text-slate-400">
+                <span class="text-sm text-slate-700 dark:text-slate-300 group-hover:text-slate-400">
                   {draft.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
                 </span>
                 <h3 class="text-lg font-bold text-amber-400 group-hover:text-amber-300">
