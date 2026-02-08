@@ -28,17 +28,9 @@
   }
 </script>
 
-<div class="space-y-1">
-  <p class="text-sm text-slate-400 tracking-wide">
-    <span class="font-bold text-amber-300">O.R.F.X.</span>
-    <span class="ml-2 text-xs text-slate-500">
-      {currentAcronym.O}
-      {currentAcronym.R}
-      {currentAcronym.F}
-      {currentAcronym.X}
-    </span>
-  </p>
-</div>
+<p class="text-xs text-slate-500 tracking-wide">
+  {currentAcronym.O} {currentAcronym.R} {currentAcronym.F} {currentAcronym.X}
+</p>
 
 <style>
   /* Capitalize first letter of each word */
