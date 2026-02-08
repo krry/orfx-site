@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from 'svelte';
   import acronyms from '../data/acronyms.json';
 
   let currentAcronym = { O: '', R: '', F: '', X: '' };
@@ -23,9 +24,9 @@
   }
 
   // Generate on mount
-  if (typeof window !== 'undefined') {
+  onMount(() => {
     generateAcronym();
-  }
+  });
 </script>
 
 <p class="text-sm text-slate-400 tracking-widest leading-tight">
