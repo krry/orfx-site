@@ -28,10 +28,12 @@
   }
 </script>
 
-<p class="text-xs text-slate-500 tracking-wide">
-  {currentAcronym.O} {currentAcronym.R} {currentAcronym.F} {currentAcronym.X}
+<p class="text-sm text-slate-400 tracking-widest leading-tight">
+  <span class="text-2xl font-bold text-amber-300">{currentAcronym.O.charAt(0)}</span><span class="text-xs text-slate-500 opacity-60">{currentAcronym.O.slice(1)}</span>
+  {' '}
+  <span class="text-2xl font-bold text-amber-300">{currentAcronym.R.charAt(0)}</span><span class="text-xs text-slate-500 opacity-60">{currentAcronym.R.slice(1)}</span>
+  {' '}
+  <span class="text-2xl font-bold text-amber-300">{currentAcronym.F.charAt(0)}</span><span class="text-xs text-slate-500 opacity-60">{currentAcronym.F.slice(1)}</span>
+  {' '}
+  <span class="text-2xl font-bold text-amber-300">{currentAcronym.X.charAt(0)}</span><span class="text-xs text-slate-500 opacity-60">{currentAcronym.X.slice(1)}</span>
 </p>
-
-<style>
-  /* Capitalize first letter of each word */
-</style>
