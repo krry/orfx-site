@@ -2,22 +2,22 @@ import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 
 export const GET: APIRoute = async () => {
-  const voiceDrafts = await getCollection('voice-drafts');
+  const verses = await getCollection('verses');
   const posts = await getCollection('posts');
   const pages = await getCollection('pages');
 
-  const voiceDraftsData = await Promise.all(
-    voiceDrafts.map(async draft => ({
-      type: 'voice-draft',
-      slug: draft.slug,
-      title: draft.data.title,
-      description: draft.data.description,
-      date: draft.data.date.toISOString(),
-      updated: draft.data.updated?.toISOString(),
-      status: draft.data.status,
-      tags: draft.data.tags || [],
-      influences: draft.data.influences || [],
-      body: draft.body,
+  const versesData = await Promise.all(
+    verses.map(async verse => ({
+      type: 'verse',
+      slug: verse.slug,
+      title: verse.data.title,
+      description: verse.data.description,
+      date: verse.data.date.toISOString(),
+      updated: verse.data.updated?.toISOString(),
+      status: verse.data.status,
+      tags: verse.data.tags || [],
+      influences: verse.data.influences || [],
+      body: verse.body,
     }))
   );
 
@@ -55,8 +55,8 @@ export const GET: APIRoute = async () => {
         url: 'https://orfx.kerry.ink',
       },
       content: {
-        voiceDrafts: voiceDraftsData
-          .filter(d => d.status === 'published')
+        verses: versesData
+          .filter(v => v.status === 'published')
           .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
         posts: postsData
           .filter(p => !p.draft)
@@ -64,7 +64,7 @@ export const GET: APIRoute = async () => {
         pages: pagesData,
       },
       stats: {
-        totalVoiceDrafts: voiceDraftsData.filter(d => d.status === 'published').length,
+        totalVerses: versesData.filter(v => v.status === 'published').length,
         totalPosts: postsData.filter(p => !p.draft).length,
         totalPages: pagesData.length,
       },

@@ -27,7 +27,7 @@ const pagesCollection = defineCollection({
   }),
 });
 
-const voiceDraftsCollection = defineCollection({
+const versesCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
@@ -44,5 +44,5 @@ const voiceDraftsCollection = defineCollection({
 export const collections = {
   posts: postsCollection,
   pages: pagesCollection,
-  'voice-drafts': voiceDraftsCollection,
+  verses: versesCollection,
 };

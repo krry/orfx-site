@@ -3,45 +3,44 @@ import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const voiceDrafts = await getCollection('voice-drafts');
-  return voiceDrafts.filter(draft => draft.data.status === 'published').map(draft => ({
-    params: { slug: draft.data.slug || draft.slug },
-    props: { draft },
+  const verses = await getCollection('verses');
+  return verses.filter(verse => verse.data.status === 'published').map(verse => ({
+    params: { slug: verse.data.slug || verse.slug },
+    props: { verse },
   }));
 }
 
+type Verse = Awaited<ReturnType<typeof getCollection<'verses'>>>[number];
+
 interface Props {
-  draft: (typeof voiceDrafts)[number];
+  verse: Verse;
 }
 
-const { draft } = Astro.props;
-const { Content } = await draft.render();
-
-type VoiceDraft = Awaited<ReturnType<typeof getCollection<'voice-drafts'>>>[number];
-const voiceDrafts: VoiceDraft[] = [];
+const { verse } = Astro.props;
+const { Content } = await verse.render();
 ---
 
-<Layout title={draft.data.title} description={draft.data.description}>
+<Layout title={verse.data.title} description={verse.data.description}>
   <article class="space-y-8 prose prose-invert max-w-none">
     {/* Header */}
     <header class="space-y-4 pb-8 border-b border-slate-800">
       <div class="space-y-2">
-        <h1 class="text-4xl font-bold text-amber-400">{draft.data.title}</h1>
-        <p class="text-lg text-slate-400">{draft.data.description}</p>
+        <h1 class="text-4xl font-bold text-amber-400">{verse.data.title}</h1>
+        <p class="text-lg text-slate-400">{verse.data.description}</p>
       </div>
       
       <div class="flex flex-col gap-4 text-sm text-slate-700 dark:text-slate-300">
         <div class="flex items-center justify-between">
-          <time datetime={draft.data.date.toISOString()}>
-            {draft.data.date.toLocaleDateString('en-US', { 
+          <time datetime={verse.data.date.toISOString()}>
+            {verse.data.date.toLocaleDateString('en-US', { 
               year: 'numeric', 
               month: 'long', 
               day: 'numeric' 
             })}
           </time>
-          {draft.data.updated && (
+          {verse.data.updated && (
             <span class="text-xs text-slate-600">
-              Updated {draft.data.updated.toLocaleDateString('en-US', { 
+              Updated {verse.data.updated.toLocaleDateString('en-US', { 
                 year: 'numeric', 
                 month: 'short', 
                 day: 'numeric' 
@@ -52,10 +51,10 @@ const voiceDrafts: VoiceDraft[] = [];
 
         {/* Influences & Tags */}
         <div class="flex flex-wrap gap-3">
-          {draft.data.influences && draft.data.influences.length > 0 && (
+          {verse.data.influences && verse.data.influences.length > 0 && (
             <div class="flex flex-wrap gap-2">
               <span class="text-slate-600">Influences:</span>
-              {draft.data.influences.map(influence => (
+              {verse.data.influences.map(influence => (
                 <span key={influence} class="text-amber-400/75">
                   {influence}
                 </span>
@@ -64,9 +63,9 @@ const voiceDrafts: VoiceDraft[] = [];
           )}
         </div>
 
-        {draft.data.tags && draft.data.tags.length > 0 && (
+        {verse.data.tags && verse.data.tags.length > 0 && (
           <div class="flex flex-wrap gap-2">
-            {draft.data.tags.map(tag => (
+            {verse.data.tags.map(tag => (
               <span key={tag} class="bg-slate-800/50 px-2 py-1 rounded text-xs text-amber-400/75">
                 #{tag}
               </span>

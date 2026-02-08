@@ -2,42 +2,42 @@
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
-const voiceDrafts = (await getCollection('voice-drafts'))
-  .filter(draft => draft.data.status === 'published')
+const verses = (await getCollection('verses'))
+  .filter(verse => verse.data.status === 'published')
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 // Group by year
-const grouped = voiceDrafts.reduce((acc, draft) => {
-  const year = draft.data.date.getFullYear().toString();
+const grouped = verses.reduce((acc, verse) => {
+  const year = verse.data.date.getFullYear().toString();
   if (!acc[year]) acc[year] = [];
-  acc[year].push(draft);
+  acc[year].push(verse);
   return acc;
-}, {} as Record<string, typeof voiceDrafts>);
+}, {} as Record<string, typeof verses>);
 ---
 
-<Layout title="Voice — orfx" description="All voice drafts and philosophical reflections.">
+<Layout title="Voice — orfx" description="Verses and philosophical reflections.">
   <div class="space-y-12">
     <section class="space-y-4">
-      <h1>Voice Drafts</h1>
+      <h1>Verses</h1>
       <p class="text-slate-400">
         Raw reflections. Unpolished musings. Witness to constellation.
       </p>
     </section>
 
-    {Object.entries(grouped).sort(([a], [b]) => parseInt(b) - parseInt(a)).map(([year, drafts]) => (
+    {Object.entries(grouped).sort(([a], [b]) => parseInt(b) - parseInt(a)).map(([year, items]) => (
       <section key={year} class="space-y-4">
         <h2 class="text-xl text-slate-400">{year}</h2>
         <ul class="space-y-3">
-          {drafts.map(draft => (
-            <li key={draft.slug} class="border-l-2 border-slate-800 hover:border-amber-400 pl-4 transition">
-              <a href={`/voice/${draft.slug}`} class="group block">
+          {items.map(verse => (
+            <li key={verse.slug} class="border-l-2 border-slate-800 hover:border-amber-400 pl-4 transition">
+              <a href={`/voice/${verse.slug}`} class="group block">
                 <span class="text-sm text-slate-700 dark:text-slate-300 group-hover:text-slate-400">
-                  {draft.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                  {verse.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
                 </span>
                 <h3 class="text-lg font-bold text-amber-400 group-hover:text-amber-300">
-                  {draft.data.title}
+                  {verse.data.title}
                 </h3>
-                <p class="text-slate-400 text-sm">{draft.data.description}</p>
+                <p class="text-slate-400 text-sm">{verse.data.description}</p>
               </a>
             </li>
           ))}

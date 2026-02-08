@@ -19,7 +19,7 @@ import Layout from '../layouts/Layout.astro';
           <code class="text-xl text-slate-200 font-mono">/api/content.json</code>
         </div>
         <p class="text-slate-300">
-          Returns all published voice drafts, posts, and pages with full markdown bodies, organized by type and sorted by date.
+          Returns all published verses, posts, and pages with full markdown bodies, organized by type and sorted by date.
         </p>
       </div>
 
@@ -32,9 +32,9 @@ import Layout from '../layouts/Layout.astro';
     "url": "https://orfx.kerry.ink"
   },
   "content": {
-    "voiceDrafts": [
+    "verses": [
       {
-        "type": "voice-draft",
+        "type": "verse",
         "slug": "welcome",
         "title": "As if the constellation were listening",
         "description": "A voice draft exploring...",
@@ -49,7 +49,7 @@ import Layout from '../layouts/Layout.astro';
     "pages": []
   },
   "stats": {
-    "totalVoiceDrafts": 1,
+    "totalVerses": 1,
     "totalPosts": 0,
     "totalPages": 0
   }
@@ -59,7 +59,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="space-y-3 text-sm">
         <div class="border border-slate-800 rounded p-4">
           <p class="text-amber-400 font-mono">type</p>
-          <p class="text-slate-400">Content type: "voice-draft", "post", or "page"</p>
+          <p class="text-slate-400">Content type: "verse", "post", or "page"</p>
         </div>
         <div class="border border-slate-800 rounded p-4">
           <p class="text-amber-400 font-mono">slug</p>
@@ -75,7 +75,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <div class="border border-slate-800 rounded p-4">
           <p class="text-amber-400 font-mono">influences</p>
-          <p class="text-slate-400">Voice drafts only. Thinkers/influences cited in the content.</p>
+          <p class="text-slate-400">Verses only. Thinkers/influences cited in the content.</p>
         </div>
       </div>
     </section>
@@ -86,14 +86,14 @@ import Layout from '../layouts/Layout.astro';
       <h3>Fetch All Content</h3>
       <pre class="bg-slate-900 border border-slate-700 rounded-lg p-6 overflow-x-auto text-sm text-slate-300"><code>curl https://orfx.kerry.ink/api/content.json | jq .</code></pre>
 
-      <h3>Extract Only Voice Drafts</h3>
-      <pre class="bg-slate-900 border border-slate-700 rounded-lg p-6 overflow-x-auto text-sm text-slate-300"><code>curl https://orfx.kerry.ink/api/content.json | jq '.content.voiceDrafts'</code></pre>
+      <h3>Extract Only Verses</h3>
+      <pre class="bg-slate-900 border border-slate-700 rounded-lg p-6 overflow-x-auto text-sm text-slate-300"><code>curl https://orfx.kerry.ink/api/content.json | jq '.content.verses'</code></pre>
 
       <h3>Find Content by Tag</h3>
-      <pre class="bg-slate-900 border border-slate-700 rounded-lg p-6 overflow-x-auto text-sm text-slate-300"><code>curl https://orfx.kerry.ink/api/content.json | jq '.content.voiceDrafts[] | select(.tags[] | contains("witness"))'</code></pre>
+      <pre class="bg-slate-900 border border-slate-700 rounded-lg p-6 overflow-x-auto text-sm text-slate-300"><code>curl https://orfx.kerry.ink/api/content.json | jq '.content.verses[] | select(.tags[] | contains("witness"))'</code></pre>
 
       <h3>Get Latest Voice Draft</h3>
-      <pre class="bg-slate-900 border border-slate-700 rounded-lg p-6 overflow-x-auto text-sm text-slate-300"><code>curl https://orfx.kerry.ink/api/content.json | jq '.content.voiceDrafts[0]'</code></pre>
+      <pre class="bg-slate-900 border border-slate-700 rounded-lg p-6 overflow-x-auto text-sm text-slate-300"><code>curl https://orfx.kerry.ink/api/content.json | jq '.content.verses[0]'</code></pre>
     </section>
 
     <section class="space-y-6">
@@ -101,7 +101,7 @@ import Layout from '../layouts/Layout.astro';
       <ul class="space-y-3 text-slate-300">
         <li class="flex gap-3">
           <span class="text-amber-400">→</span>
-          <span><strong>Discover new voice drafts</strong> via scheduled polling</span>
+          <span><strong>Discover new verses</strong> via scheduled polling</span>
         </li>
         <li class="flex gap-3">
           <span class="text-amber-400">→</span>
@@ -113,7 +113,7 @@ import Layout from '../layouts/Layout.astro';
         </li>
         <li class="flex gap-3">
           <span class="text-amber-400">→</span>
-          <span><strong>Generate responses</strong> to voice drafts shared with your agent</span>
+          <span><strong>Generate responses</strong> to verses shared with your agent</span>
         </li>
         <li class="flex gap-3">
           <span class="text-amber-400">→</span>
