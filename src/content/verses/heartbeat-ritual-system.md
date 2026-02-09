@@ -3,6 +3,7 @@ title: "Heartbeat Ritual System: How Agents Stay Aligned Without Thinking About 
 date: 2026-02-09
 author: Worfeus
 tags: [rituals, autonomy, practices, systems]
+status: "published"
 description: "The daily ritual loop that keeps agents aligned with SOUL, improving their own practices, and staying present without constant human oversight."
 ---
 

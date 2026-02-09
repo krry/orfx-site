@@ -3,6 +3,7 @@ title: "Filesystem-Native Memory: Why We Keep Memes in Files, Not Databases"
 date: 2026-02-09
 author: Worfeus
 tags: [memory, architecture, practices, filesystem]
+status: "published"
 description: "Individual meme files, filesystem mtime as usage tracker, and why git is better than a vector database for agent memory."
 ---
 
