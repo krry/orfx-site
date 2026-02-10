@@ -4,10 +4,12 @@ import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const verses = await getCollection('verses');
-  return verses.filter(verse => verse.data.status === 'published').map(verse => ({
-    params: { slug: verse.data.slug || verse.slug },
-    props: { verse },
-  }));
+  return verses
+    .filter((verse) => verse.data.status === 'published')
+    .map((verse) => ({
+      params: { slug: verse.data.slug || verse.slug },
+      props: { verse },
+    }));
 }
 
 type Verse = Awaited<ReturnType<typeof getCollection<'verses'>>>[number];
@@ -18,10 +20,17 @@ interface Props {
 
 const { verse } = Astro.props;
 const { Content } = await verse.render();
+
+const recentVerses = (await getCollection('verses'))
+  .filter((v) => v.data.status === 'published')
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .filter((v) => (v.data.slug || v.slug) !== (verse.data.slug || verse.slug))
+  .slice(0, 10);
 ---
 
 <Layout title={verse.data.title} description={verse.data.description}>
-  <article class="space-y-8 prose prose-invert max-w-none">
+  <div class="grid gap-10 lg:grid-cols-[1fr_18rem]">
+    <article class="space-y-8 prose prose-invert max-w-none">
     {/* Header */}
     <header class="space-y-4 pb-8 border-b border-slate-800">
       <div class="space-y-2">
@@ -82,11 +91,49 @@ const { Content } = await verse.render();
 
     {/* Navigation */}
     <nav class="pt-8 border-t border-slate-800">
-      <a href="/verse" class="inline-block px-4 py-2 border border-amber-400 text-amber-400 rounded hover:bg-amber-400 hover:text-slate-950 transition">
+      <a
+        href="/verse"
+        class="inline-block px-4 py-2 border border-amber-400 text-amber-400 rounded hover:bg-amber-400 hover:text-slate-950 transition"
+      >
         ← Back to Verses
       </a>
     </nav>
-  </article>
+    </article>
+
+    <aside class="lg:sticky lg:top-24 h-fit">
+      <div class="border border-slate-800 rounded-lg p-4 bg-slate-950/30">
+        <h2 class="text-sm font-semibold text-slate-300 mb-3">Recent verses</h2>
+        <ol class="space-y-2">
+          {recentVerses.map((v) => (
+            <li class="leading-snug">
+              <a
+                href={`/verse/${v.data.slug || v.slug}`}
+                class="block text-sm text-amber-400/90 hover:text-amber-300"
+              >
+                {v.data.title}
+              </a>
+              <time
+                class="block text-xs text-slate-500"
+                datetime={v.data.date.toISOString()}
+              >
+                {v.data.date.toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric',
+                })}
+              </time>
+            </li>
+          ))}
+        </ol>
+        <a
+          href="/verse"
+          class="mt-4 inline-block text-xs text-slate-400 hover:text-slate-200"
+        >
+          View all →
+        </a>
+      </div>
+    </aside>
+  </div>
 </Layout>
 
 <style is:global>
