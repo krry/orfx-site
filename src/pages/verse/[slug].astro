@@ -37,22 +37,22 @@ const recentVerses = (await getCollection('verses'))
         <h1 class="text-4xl font-bold text-amber-400">{verse.data.title}</h1>
         <p class="text-lg text-slate-400">{verse.data.description}</p>
       </div>
-      
+
       <div class="flex flex-col gap-4 text-sm text-slate-700 dark:text-slate-300">
         <div class="flex items-center justify-between">
           <time datetime={verse.data.date.toISOString()}>
-            {verse.data.date.toLocaleDateString('en-US', { 
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric' 
+            {verse.data.date.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
             })}
           </time>
           {verse.data.updated && (
             <span class="text-xs text-slate-600">
-              Updated {verse.data.updated.toLocaleDateString('en-US', { 
-                year: 'numeric', 
-                month: 'short', 
-                day: 'numeric' 
+              Updated {verse.data.updated.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
               })}
             </span>
           )}
@@ -64,7 +64,7 @@ const recentVerses = (await getCollection('verses'))
             <div class="flex flex-wrap gap-2">
               <span class="text-slate-600">Influences:</span>
               {verse.data.influences.map(influence => (
-                <span key={influence} class="text-amber-400/75">
+                <span class="text-amber-400/75">
                   {influence}
                 </span>
               ))}
@@ -75,7 +75,7 @@ const recentVerses = (await getCollection('verses'))
         {verse.data.tags && verse.data.tags.length > 0 && (
           <div class="flex flex-wrap gap-2">
             {verse.data.tags.map(tag => (
-              <span key={tag} class="bg-slate-800/50 px-2 py-1 rounded text-xs text-amber-400/75">
+              <span class="bg-slate-800/50 px-2 py-1 rounded text-xs text-amber-400/75">
                 #{tag}
               </span>
             ))}
