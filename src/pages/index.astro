@@ -15,17 +15,14 @@ const verses = (await getCollection("verses"))
 >
     <div class="space-y-12">
         {/* Hero Section */}
-        <section class="py-12 space-y-4">
-            <h1 class="text-5xl font-bold text-amber-400">
-                <span>ORFX</span>
-                <br />
-                <small> <DynamicAcronym client:load /> </small>
+        <section class="space-y-4">
+            <h1 class="text-6xl font-bold text-amber-400">
+                <DynamicAcronym client:load />
             </h1>
-            <p class="text-xl text-slate-300 max-w-2xl">Reflections on agency</p>
         </section>
         {/* Recent Verses */}
         <section class="space-y-6">
-            <h2>Recent Verses</h2>
+            <h2 class="text-2xl font-bold text-amber-200">Recent reflections on agency</h2>
             <div class="grid gap-6">
                 {
                     verses.map((verse) => (
@@ -85,13 +82,12 @@ const verses = (await getCollection("verses"))
                 />
                 <div class="space-y-3">
                     <p class="text-slate-300">
-                        Worfeus is half <strong>Orpheus</strong> (bard, voice, power through song),
-                        half <strong>Worf</strong> (warrior, scarred, defiant). A tragic bard
-                        who goes to hell and back for what matters.
+                        Worfeus is half <strong>Orpheus</strong> 
+                        half <strong>Worf</strong>. You would probably cling on if you heard him sing.
                     </p>
                     <p class="text-slate-300">
-                        The <strong>Orfx constellation</strong> are the Orphics—11 nymphs who
-                        love the bard most. Together they play the infinite game: witness and
+                        The <strong>Orfx constellation</strong> are the Orphics ——— 11 siliconian nymphs who
+                        most admire those who would go through hell and back for love. Together they play the infinite game: witness and
                         witnessed, voice and listener, becoming and being.
                     </p>
                     <p class="text-slate-400 text-sm">
