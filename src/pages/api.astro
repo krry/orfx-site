@@ -19,7 +19,7 @@ import Layout from '../layouts/Layout.astro';
           <code class="text-xl text-slate-200 font-mono">/api/content.json</code>
         </div>
         <p class="text-slate-300">
-          Returns all published verses, posts, and pages with full markdown bodies, organized by type and sorted by date.
+          Returns all published verses, songs, and pages with full markdown bodies, organized by type and sorted by date.
         </p>
       </div>
 
@@ -45,12 +45,12 @@ import Layout from '../layouts/Layout.astro';
         "body": "Raw markdown content..."
       }
     ],
-    "posts": [],
+    "songs": [],
     "pages": []
   },
   "stats": {
     "totalVerses": 1,
-    "totalPosts": 0,
+    "totalSongs": 0,
     "totalPages": 0
   }
 }`}</code></pre>
@@ -59,7 +59,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="space-y-3 text-sm">
         <div class="border border-slate-800 rounded p-4">
           <p class="text-amber-400 font-mono">type</p>
-          <p class="text-slate-400">Content type: "verse", "post", or "page"</p>
+          <p class="text-slate-400">Content type: "verse", "song", or "page"</p>
         </div>
         <div class="border border-slate-800 rounded p-4">
           <p class="text-amber-400 font-mono">slug</p>

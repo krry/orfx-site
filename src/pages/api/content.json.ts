@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 
 export const GET: APIRoute = async () => {
   const verses = await getCollection('verses');
-  const posts = await getCollection('posts');
+  const songs = await getCollection('songs');
   const pages = await getCollection('pages');
 
   const versesData = await Promise.all(
@@ -15,26 +15,27 @@ export const GET: APIRoute = async () => {
       date: verse.data.date.toISOString(),
       updated: verse.data.updated?.toISOString(),
       status: verse.data.status,
+      elements: verse.data.elements || [],
       tags: verse.data.tags || [],
       influences: verse.data.influences || [],
       body: verse.body,
     }))
   );
 
-  const postsData = await Promise.all(
-    posts.map(async post => ({
-      type: 'post',
-      slug: post.slug,
-      title: post.data.title,
-      description: post.data.description,
-      author: post.data.author,
-      date: post.data.date.toISOString(),
-      updated: post.data.updated?.toISOString(),
-      category: post.data.category,
-      tags: post.data.tags || [],
-      draft: post.data.draft,
-      featured: post.data.featured,
-      body: post.body,
+  const songsData = await Promise.all(
+    songs.map(async song => ({
+      type: 'song',
+      slug: song.slug,
+      title: song.data.title,
+      description: song.data.description,
+      author: song.data.author,
+      date: song.data.date.toISOString(),
+      updated: song.data.updated?.toISOString(),
+      elements: song.data.elements || [],
+      tags: song.data.tags || [],
+      draft: song.data.draft,
+      featured: song.data.featured,
+      body: song.body,
     }))
   );
 
@@ -58,14 +59,14 @@ export const GET: APIRoute = async () => {
         verses: versesData
           .filter(v => v.status === 'published')
           .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
-        posts: postsData
-          .filter(p => !p.draft)
+        songs: songsData
+          .filter(s => !s.draft)
           .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
         pages: pagesData,
       },
       stats: {
         totalVerses: versesData.filter(v => v.status === 'published').length,
-        totalPosts: postsData.filter(p => !p.draft).length,
+        totalSongs: songsData.filter(s => !s.draft).length,
         totalPages: pagesData.length,
       },
     }, null, 2)

@@ -20,6 +20,7 @@ const { title = 'orfx', description = 'Witness to constellation. Beautiful in ru
     <meta name="agent-friendly" content="true" />
     <title>{title} — orfx</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script src="https://kerry.ink/widgets/webring/webring.wc.js"></script>
   </head>
   <body class="text-slate-100 font-sans antialiased overflow-x-hidden">
     <BackgroundCycle client:load />
@@ -31,8 +32,8 @@ const { title = 'orfx', description = 'Witness to constellation. Beautiful in ru
         </a>
         <ul class="flex gap-6 text-sm text-slate-400">
           <li><a href="/verse" class="hover:text-amber-400 transition">verses</a></li>
-          <li><a href="/about" class="hover:text-amber-400 transition">about</a></li>
-          <li><a href="/constellation" class="hover:text-amber-400 transition">constellation</a></li>
+          <li><a href="/songs" class="hover:text-amber-400 transition">songs</a></li>
+          <li><a href="/band" class="hover:text-amber-400 transition">band</a></li>
           <li><a href="/api" class="hover:text-amber-400 transition">api</a></li>
         </ul>
       </div>
@@ -51,5 +52,13 @@ const { title = 'orfx', description = 'Witness to constellation. Beautiful in ru
         </div>
       </div>
     </footer>
+
+    <!-- Webring Widget (Bottom Right) -->
+    <webring-widget 
+      data-source="https://kerry.ink/widgets/webring/webring.json"
+      mode="compact" 
+      theme="auto"
+      style="position: fixed; bottom: 2rem; right: 2rem; max-width: 320px; z-index: 1000;"
+    ></webring-widget>
   </body>
 </html>
