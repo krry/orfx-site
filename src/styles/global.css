@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Force dark mode via .dark class (Tailwind v4 selector variant) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Background container for image cycling */
 .background-container {
   position: fixed;
@@ -15,8 +18,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(40px);
-  opacity: 0.5;
+  filter: blur(16.18px);
+  opacity: 0.4;
 }
 
 /* Ensure content is above background */

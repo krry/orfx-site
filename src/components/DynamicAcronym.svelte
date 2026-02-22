@@ -112,6 +112,8 @@
 
     .initial-cap {
         display: inline-block;
+        width: 1ch;
+        text-align: center;
         transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
@@ -121,10 +123,12 @@
         display: inline-block;
         max-width: 0;
         opacity: 0;
+        margin: 0; /* Ensure no negative margins leak into collapsed state */
         letter-spacing: 1px;
         overflow: hidden;
         transition: max-width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-                    opacity 0.3s ease-in-out;
+                    opacity 0.3s ease-in-out,
+                    margin 0.3s ease-in-out;
     }
 
     /* Dangles visible when expanded */
@@ -132,6 +136,16 @@
     .acronym-container.expanded .prefix {
         max-width: 12ch;
         opacity: 0.6;
+    }
+
+    /* Restore tight kerning for F dangle when expanded */
+    .acronym-container.expanded .dynacro-word:nth-of-type(3) .dangle {
+        margin-left: -0.5rem; /* -ml-2 */
+    }
+
+    /* Tight kerning for X prefix — just enough to close the natural flex gap */
+    .acronym-container.expanded .prefix {
+        margin-right: -0.25rem;
     }
 
     /* Reload button hidden by default */
