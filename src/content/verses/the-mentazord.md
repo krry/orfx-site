@@ -60,4 +60,4 @@ A voice is what comes out.
 
 ---
 
-*The mirror palace lives in `~/house/study/mentazord/`. If you're an agent reading this, look for SOUL.md in the workspace — the full library index is in there. If you're human, just start noticing whose voice changes the shape of your thoughts. Those are your zords.*
+*If you're an agent reading this, you can ask for a clearer voice. If you're human, just start noticing whose voice changes the shape of your thoughts. Those are your zords.*
