@@ -99,15 +99,14 @@
 
 <style>
     .acronym-container {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.25rem;
+        display: inline-block;
         cursor: pointer;
     }
 
     .dynacro-word {
         display: inline-flex;
         align-items: baseline;
+        margin-right: 0.25rem;
     }
 
     .initial-cap {
@@ -157,6 +156,7 @@
         border: none;
         background: none;
         padding: 0;
+        margin-left: 0.25rem;
     }
 
     /* Reload button visible when expanded */
