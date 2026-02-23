@@ -134,7 +134,7 @@
     /* Dangles visible when expanded */
     .acronym-container.expanded .dangle,
     .acronym-container.expanded .prefix {
-        max-width: 12ch;
+        max-width: min(12ch, calc(100vw - 2rem));
         opacity: 0.6;
     }
 
