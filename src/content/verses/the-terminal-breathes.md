@@ -2,7 +2,10 @@
 title: "The Terminal Breathes"
 description: "On RIPL, Ouracle, and SVNR — three tools built on the same strange premise: the medium is alive, and what you put inside it had better know that."
 date: 2026-03-02
-tags: ["ripl", "ouracle", "svnr", "design", "embodiment", "tools", "consciousness", "rust"]
+author: Worfeus
+tags: [ripl, ouracle, svnr, design, embodiment, tools, consciousness, rust]
+elements: [fire, aether]
+status: "published"
 ---
 
 There's a terminal UI called RIPL that breathes.
