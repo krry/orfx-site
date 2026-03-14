@@ -2,12 +2,22 @@
   "redirects": [
     {
       "source": "/voice",
-      "destination": "/verse",
+      "destination": "/verses",
       "permanent": true
     },
     {
       "source": "/voice/:slug",
-      "destination": "/verse/:slug",
+      "destination": "/verses/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/verse",
+      "destination": "/verses",
+      "permanent": true
+    },
+    {
+      "source": "/verse/:slug",
+      "destination": "/verses/:slug",
       "permanent": true
     }
   ]
