@@ -1,7 +1,7 @@
 ---
 title: "The Terminal Breathes"
 description: "On RIPL, Ouracle, and SVNR — three tools built on the same strange premise: the medium is alive, and what you put inside it had better know that."
-date: 2026-03-02
+date: 2026-03-14
 status: "published"
 tags: ["ripl", "ouracle", "svnr", "design", "embodiment", "tools", "consciousness", "rust"]
 ---
