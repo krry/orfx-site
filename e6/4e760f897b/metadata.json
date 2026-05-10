@@ -1,0 +1,26 @@
+{
+  "cli_version": "0.4.5",
+  "checkpoint_id": "e64e760f897b",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 3,
+  "files_touched": [
+    "src/content/verses/warm-at-the-protocol-layer.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/e6/4e760f897b/0/metadata.json",
+      "transcript": "/e6/4e760f897b/0/full.jsonl",
+      "context": "/e6/4e760f897b/0/context.md",
+      "content_hash": "/e6/4e760f897b/0/content_hash.txt",
+      "prompt": "/e6/4e760f897b/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 20,
+    "cache_creation_tokens": 36263,
+    "cache_read_tokens": 452935,
+    "output_tokens": 7754,
+    "api_call_count": 12
+  }
+}

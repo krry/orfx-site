@@ -1,0 +1,31 @@
+{
+  "cli_version": "0.4.5",
+  "checkpoint_id": "e64e760f897b",
+  "session_id": "1737cb3f-f6b2-44b9-96f3-09ccf24f577d",
+  "strategy": "manual-commit",
+  "created_at": "2026-05-10T06:01:02.705059Z",
+  "branch": "main",
+  "checkpoints_count": 3,
+  "files_touched": [
+    "src/content/verses/warm-at-the-protocol-layer.md"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "07c082977e5f",
+  "token_usage": {
+    "input_tokens": 20,
+    "cache_creation_tokens": 36263,
+    "cache_read_tokens": 452935,
+    "output_tokens": 7754,
+    "api_call_count": 12
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-05-10T06:01:02.555128Z",
+    "agent_lines": 75,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 75,
+    "agent_percentage": 100
+  },
+  "transcript_path": ".claude/projects/-Users-kerry-house-cabinet-orfx-site/1737cb3f-f6b2-44b9-96f3-09ccf24f577d.jsonl"
+}

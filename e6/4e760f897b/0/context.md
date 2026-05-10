@@ -1,0 +1,20 @@
+# Session Context
+
+## User Prompts
+
+### Prompt 1
+
+how much insight do you have into the recent progress in Vesta, SVNR, Ouracle, Gist, and kerry.ink? if you read the git logs, might you piece together a blog post (called a "verse") in the spirit of the orfx-site blog here @src/content/verses/
+
+### Prompt 2
+
+thanks, give it a revision pass yourself; we don't want to sound braggy or self-aggrandizing. I think you've made an interesting connection though, like the message
+
+### Prompt 3
+
+good to go
+
+### Prompt 4
+
+is that committed and pushed then?
+
